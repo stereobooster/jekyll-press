@@ -10,8 +10,8 @@ This plugin:
 ## Usage
  - put `jekyll_press.rb` in plugins folder
  - add gems to `Gemfile`
- - `bundle`
- - regenerate all content
+ - install gems: `bundle`
+ - regenerate all content: `bundle exec jekyll` 
 
 ## TODO
  - Minify JPEGs with `jpegtran` or `smush.it` ([smusher](https://github.com/grosser/smusher))
