@@ -1,7 +1,4 @@
-source :rubygems
+source 'https://rubygems.org'
 
-gem "jekyll"
-
-gem "html_press"
-gem "css_press"
-gem "uglifier"
+# Specify your gem's dependencies in jekyll-press.gemspec
+gemspec
