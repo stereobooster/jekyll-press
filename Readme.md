@@ -47,6 +47,16 @@ Create the following plugin in your projects _plugins directory.
 require 'jekyll-press'
 ```
 
+### Settings
+If you want to exclude some jekyll pages from processing (for example `atom.xml`) you can add following to the `_config.yml`:
+
+```yaml
+jekyll-press:
+  exclude: 'atom.xml'
+```
+
+`exclude` can be file name, glob pattern or array of file names and glob patterns.
+
 ## TODO
  - Minify JPEGs with [`jpegtran`](/cmer/jpegtran) or `smush.it` ([smusher](/grosser/smusher))
  - Minify PNGs with [`optipng`](/martinkozak/optipng) or `smush.it` ([smusher](/grosser/smusher))
