@@ -1,7 +1,7 @@
 require "jekyll-press/version"
 
 require 'html_press'
-require 'css_press'
+require 'multi_css'
 require 'uglifier'
 
 module Jekyll
@@ -44,8 +44,8 @@ module Jekyll
     end
 
     def output_css(path, content)
-      output_file(path, CssPress.press(content))
-    rescue Racc::ParseError => e
+      output_file(path, MultiCss.min(content))
+    rescue MultiCss::ParseError => e
       warn "Warning: parse error in #{path}. Don't panic - copying initial file"
       warn "Details: #{e.message.strip}"
       output_file(path, content)

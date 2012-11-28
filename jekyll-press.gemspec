@@ -17,7 +17,7 @@ Gem::Specification.new do |gem|
   gem.version       = Jekyll::Press::VERSION
 
   gem.add_dependency 'jekyll'
-  gem.add_dependency "html_press"
-  gem.add_dependency "css_press"
+  gem.add_dependency "html_press", ">= 0.8.0"
+  gem.add_dependency "multi_css", ">= 0.1.0"
   gem.add_dependency "uglifier"
 end
