@@ -48,16 +48,17 @@ require 'jekyll-press'
 ```
 
 ### Settings
-If you want to exclude some jekyll pages from processing (for example `atom.xml`) you can add following to the `_config.yml`:
 
 ```yaml
 jekyll-press:
-  exclude: 'atom.xml'
+  exclude: 'atom.xml' # Exclude files from processing - file name, glob pattern or array of file names and glob patterns
+  js_options: {}      # js minifier options
+  css_options: {}     # css minifier options
+  html_options: {}    # html minifier options
 ```
 
-`exclude` can be file name, glob pattern or array of file names and glob patterns.
-
 ## TODO
+ - add test: run against simple jekyll site and check if there is no errors
  - Minify JPEGs with [`jpegtran`](/cmer/jpegtran) or `smush.it` ([smusher](/grosser/smusher))
  - Minify PNGs with [`optipng`](/martinkozak/optipng) or `smush.it` ([smusher](/grosser/smusher))
  - Auto CSS sprites (for example [sprite factory](/jakesgordon/sprite-factory/))

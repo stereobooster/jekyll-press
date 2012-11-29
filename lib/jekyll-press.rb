@@ -2,7 +2,7 @@ require "jekyll-press/version"
 
 require 'html_press'
 require 'multi_css'
-require 'uglifier'
+require 'multi_js'
 
 module Jekyll
   module Compressor
@@ -32,19 +32,19 @@ module Jekyll
     end
 
     def output_html(path, content)
-      output_file(path, HtmlPress.press(content))
+      output_file(path, HtmlPress.press(content, @site.config['jekyll-press'] && @site.config['jekyll-press']['html_options'] || {}))
     end
 
     def output_js(path, content)
-      output_file(path, Uglifier.new.compile(content))
-    rescue Uglifier::Error => e
+      output_file(path, MultiJs.compile(content, @site.config['jekyll-press'] && @site.config['jekyll-press']['js_options'] || {}))
+    rescue MultiJs::ParseError => e
       warn "Warning: parse error in #{path}. Don't panic - copying initial file"
       warn "Details: #{e.message.strip}"
       output_file(path, content)
     end
 
     def output_css(path, content)
-      output_file(path, MultiCss.min(content))
+      output_file(path, MultiCss.min(content, @site.config['jekyll-press'] && @site.config['jekyll-press']['css_options'] || {}))
     rescue MultiCss::ParseError => e
       warn "Warning: parse error in #{path}. Don't panic - copying initial file"
       warn "Details: #{e.message.strip}"
