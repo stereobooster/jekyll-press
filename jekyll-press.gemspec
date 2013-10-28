@@ -4,8 +4,8 @@ require File.expand_path('../lib/jekyll-press/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors     = ["sterebooster"]
   gem.email       = ["stereobooster@gmail.com"]
-  gem.description = %q{Minifier plugin for jekyll. Minifies all html, js, css files. Simple just drop it in solution. No Java required}
-  gem.summary     = %q{Minifier plugin for jekyll. This plugin compress html with the help of html_press, compress JavaScript files with the help of uglifier, compress css files with the help of css_press}
+  gem.description = %q{Minifier plugin for jekyll. Minifies all html, js, css, json files. Simple just drop it in solution. No Java required}
+  gem.summary     = %q{Minifier plugin for jekyll. This plugin compress html with the help of html_press, compress JavaScript files with the help of uglifier, compress css files with the help of css_press, compress json files with the help of json}
   gem.homepage    = "http://github.com/stereobooster/jekyll-press"
   gem.license     = "MIT"
 
@@ -20,6 +20,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency "html_press", ">= 0.8.2"
   gem.add_dependency "multi_css", ">= 0.1.0"
   gem.add_dependency "multi_js", ">= 0.1.0"
+  gem.add_dependency "json"
 
   gem.add_development_dependency "rake"
 end
