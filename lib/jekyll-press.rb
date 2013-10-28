@@ -3,6 +3,7 @@ require "jekyll-press/version"
 require 'html_press'
 require 'multi_css'
 require 'multi_js'
+require 'json'
 
 module Jekyll
   module Compressor
@@ -50,6 +51,13 @@ module Jekyll
       warn "Details: #{e.message.strip}"
       output_file(path, content)
     end
+    
+    def output_json(path, content)
+      output_file(path, JSON.parse(content).to_json)
+    rescue
+      warn "Warning: JSON parse error. Don't panic - copying initial file"
+      output_file(path, content)
+    end
   end
 
   class Post
@@ -94,6 +102,12 @@ module Jekyll
             copy_file(path, dest_path)
           else
             output_js(dest_path, File.read(path))
+          end
+        when '.json'
+          if dest_path =~ /.min.json$/
+            copy_file(path, dest_path)
+          else
+            output_json(dest_path, File.read(path))
           end
         when '.css'
           if dest_path =~ /.min.css$/

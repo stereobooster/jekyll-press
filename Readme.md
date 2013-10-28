@@ -1,10 +1,11 @@
 # jekyll-press
-Minifier plugin for jekyll. Minifies all html, js, css files. Simple just drop it in solution. No Java required.
+Minifier plugin for jekyll. Minifies all html, js, css, json files. Simple just drop it in solution. No Java required.
 
 This plugin:
  - compress html with the help of html_press
  - compress JavaScript files with the help of uglifier
  - compress css files with the help of css_press
+ - compress json files with the help of json
 
 ## Installation
 
