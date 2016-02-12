@@ -6,6 +6,10 @@ This plugin:
  - compress JavaScript files with the help of [uglifier](https://github.com/lautis/uglifier)
  - compress css files with the help of [css_press](https://github.com/stereobooster/css_press)
 
+## Alternative
+
+Gulp based workflow see: [sondr3/generator-jekyllized](/sondr3/generator-jekyllized)
+
 ## Installation
 
 ### Bundler
