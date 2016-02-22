@@ -88,21 +88,25 @@ module Jekyll
       return false if File.exist?(dest_path) and !modified?
       @@mtimes[path] = mtime
 
-      case File.extname(dest_path)
-        when '.js'
-          if dest_path =~ /.min.js$/
-            copy_file(path, dest_path)
+      unless exclude?(dest, dest_path)
+        case File.extname(dest_path)
+          when '.js'
+            if dest_path =~ /.min.js$/
+              copy_file(path, dest_path)
+            else
+              output_js(dest_path, File.read(path))
+            end
+          when '.css'
+            if dest_path =~ /.min.css$/
+              copy_file(path, dest_path)
+            else
+              output_css(dest_path, File.read(path))
+            end
           else
-            output_js(dest_path, File.read(path))
-          end
-        when '.css'
-          if dest_path =~ /.min.css$/
             copy_file(path, dest_path)
-          else
-            output_css(dest_path, File.read(path))
-          end
-        else
-          copy_file(path, dest_path)
+        end
+      else
+        copy_file(path, dest_path)
       end
 
       true
