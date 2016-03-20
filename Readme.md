@@ -8,7 +8,7 @@ This plugin:
 
 ## Alternative
 
-Gulp based workflow see: [sondr3/generator-jekyllized](/sondr3/generator-jekyllized)
+Gulp based workflow see: [sondr3/generator-jekyllized](https://github.com/sondr3/generator-jekyllized)
 
 ## Installation
 
@@ -63,9 +63,9 @@ jekyll-press:
 
 ## TODO
  - add test: run against simple jekyll site and check if there is no errors
- - Minify JPEGs with [`jpegtran`](/cmer/jpegtran) or `smush.it` ([smusher](/grosser/smusher))
- - Minify PNGs with [`optipng`](/martinkozak/optipng) or `smush.it` ([smusher](/grosser/smusher))
- - Auto CSS sprites (for example [sprite factory](/jakesgordon/sprite-factory/))
+ - Minify JPEGs with [`jpegtran`](https://github.com/cmer/jpegtran) or `smush.it` ([smusher](https://github.com/grosser/smusher))
+ - Minify PNGs with [`optipng`](https://github.com/martinkozak/optipng) or `smush.it` ([smusher](https://github.com/grosser/smusher))
+ - Auto CSS sprites (for example [sprite factory](https://github.com/jakesgordon/sprite-factory/))
 
 ## Contributing
 1. Fork it
