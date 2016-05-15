@@ -1,7 +1,7 @@
 require "jekyll-press/version"
 
 require 'html_press'
-require 'multi_css'
+require 'cssminify'
 require 'multi_js'
 
 module Jekyll
