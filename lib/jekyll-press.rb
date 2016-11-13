@@ -1,7 +1,7 @@
 require "jekyll-press/version"
 
 require 'html_press'
-require 'multi_css'
+require 'cssminify'
 require 'multi_js'
 
 module Jekyll
@@ -76,7 +76,10 @@ module Jekyll
 
   class StaticFile
     include Compressor
-    
+
+# this should fix 'Error:  uninitialized class variable @@mtimes in jekyll::StaticFile'
+    @@mtimes = {}
+
     def copy_file(path, dest_path)
       FileUtils.mkdir_p(File.dirname(dest_path))
       FileUtils.cp(path, dest_path)
@@ -89,20 +92,20 @@ module Jekyll
       @@mtimes[path] = mtime
 
       case File.extname(dest_path)
-        when '.js'
-          if dest_path =~ /.min.js$/
-            copy_file(path, dest_path)
-          else
-            output_js(dest_path, File.read(path))
-          end
-        when '.css'
-          if dest_path =~ /.min.css$/
-            copy_file(path, dest_path)
-          else
-            output_css(dest_path, File.read(path))
-          end
-        else
+      when '.js'
+        if dest_path =~ /.min.js$/
           copy_file(path, dest_path)
+        else
+          output_js(dest_path, File.read(path))
+        end
+      when '.css'
+        if dest_path =~ /.min.css$/
+          copy_file(path, dest_path)
+        else
+          output_css(dest_path, File.read(path))
+        end
+      else
+        copy_file(path, dest_path)
       end
 
       true
