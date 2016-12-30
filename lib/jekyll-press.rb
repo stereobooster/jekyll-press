@@ -6,6 +6,10 @@ require 'multi_js'
 
 module Jekyll
   module Compressor
+    
+    # Fix - 'Error:  uninitialized class variable @@mtimes in jekyll::StaticFile'
+    @@mtimes = {}
+    
     def exclude?(dest, dest_path)
       res = false
       file_name = dest_path.slice(dest.length+1..dest_path.length)
