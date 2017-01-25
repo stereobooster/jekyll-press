@@ -93,13 +93,21 @@ module Jekyll
           if dest_path =~ /.min.js$/
             copy_file(path, dest_path)
           else
-            output_js(dest_path, File.read(path))
+            if exclude?(dest, dest_path)
+              output_file(dest_path, File.read(path))
+            else
+              output_js(dest_path, File.read(path))
+            end
           end
         when '.css'
           if dest_path =~ /.min.css$/
             copy_file(path, dest_path)
           else
-            output_css(dest_path, File.read(path))
+            if exclude?(dest, dest_path)
+              output_file(dest_path, File.read(path))
+            else
+              output_css(dest_path, File.read(path))
+            end
           end
         else
           copy_file(path, dest_path)
