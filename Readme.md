@@ -52,6 +52,7 @@ require 'jekyll-press'
 ```
 
 ### Settings
+Add the following to your _config.yml file.
 
 ```yaml
 jekyll-press:
