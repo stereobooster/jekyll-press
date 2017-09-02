@@ -86,7 +86,7 @@ module Jekyll
       dest_path = destination(dest)
 
       return false if File.exist?(dest_path) and !modified?
-      @@mtimes[path] = mtime
+      @mtimes[path] = mtime
 
       case File.extname(dest_path)
         when '.js'
